@@ -1,0 +1,22 @@
+<div class="container">
+  <h2 *ngIf="!isLoggedIn">🔑 User Login</h2>
+  <h2 *ngIf="isLoggedIn">✅ Welcome, {{ loggedInUser?.username }}!</h2>
+
+  <form *ngIf="!isLoggedIn" (submit)="onSubmit()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" [(ngModel)]="username" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="text" id="password" [(ngModel)]="password" name="password" required> <!-- ❌ Text, nu Password -->
+
+    <button type="submit">Login</button>
+  </form>
+
+  <div *ngIf="isLoggedIn">
+    <p><strong>User ID:</strong> {{ loggedInUser?.userId }}</p>
+    <p><strong>Session Token:</strong> {{ sessionToken }}</p>
+    <button (click)="logout()">Logout</button>
+  </div>
+
+  <p *ngIf="authMessage">{{ authMessage }}</p>
+</div>

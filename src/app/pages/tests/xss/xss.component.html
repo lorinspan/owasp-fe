@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>📝 User Feedback Form</h2>
+
+  <form (submit)="submitFeedback()">
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name" required>
+
+    <label for="message">Your Message:</label>
+    <textarea id="message" [(ngModel)]="message" name="message" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <h3>📢 Public Feedback</h3>
+  <div *ngFor="let feedback of feedbackList">
+    <strong>{{ feedback.name }}:</strong>
+    <p [innerHTML]="feedback.message"></p> <!-- Acum este vulnerabil la XSS -->
+  </div>
+</div>

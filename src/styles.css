@@ -1,1 +1,134 @@
-/* You can add global styles to this file, and also import other style files */
+/* 🌍 General Styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f4f4f4;
+  color: #333;
+  padding: 20px;
+}
+
+/* 📌 Navbar Styling */
+nav {
+  background: linear-gradient(90deg, #2C3E50, #1ABC9C);
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 18px;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+li a:hover {
+  background: white;
+  color: #1ABC9C;
+  transform: scale(1.05);
+}
+
+/* 📄 Page Containers */
+.container {
+  background: white;
+  padding: 40px; /* 📌 Mai mult padding */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 60px auto; /* 📌 Mai mult spațiu între componente */
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out; /* 📌 Animatie mai rapidă */
+}
+
+/* 📝 Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* 📌 Mai mult spațiu între câmpuri */
+  align-items: center;
+}
+
+label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  display: block; /* 📌 Asigură aliniere corectă */
+  margin-bottom: 5px;
+}
+
+input, textarea {
+  width: 100%; /* 📌 Full width pentru consistență */
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: 0.2s ease-in-out;
+}
+
+input:focus, textarea:focus {
+  border-color: #1ABC9C;
+  outline: none;
+}
+
+/* 🚀 Buttons */
+button {
+  background: #1ABC9C;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+button:hover {
+  background: #16A085;
+  transform: scale(1.05);
+}
+
+/* ⚠️ Error Messages */
+.error {
+  color: #E74C3C;
+  font-weight: bold;
+}
+
+/* ✅ Success Messages */
+.success {
+  color: #27AE60;
+  font-weight: bold;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 30px;
+  }
+
+  input, textarea {
+    width: 100%;
+  }
+}
+
+/* 🎬 Animation Tweaks */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,41 @@
+<div class="container">
+  <h1 class="title">OWASP Security Checker Application</h1>
+  <p class="subtitle">Examen Cybersecurity Developer, Șpan Lorin, martie 2025.</p>
+
+  <div class="section">
+    <h2 class="section-title">Ce poți testa în această aplicație?</h2>
+    <p>Această aplicație demonstrează vulnerabilități din OWASP Top 10 și permite testarea unor atacuri comune asupra aplicațiilor web.</p>
+  </div>
+
+  <div class="section">
+    <h3 class="section-subtitle">Broken Access Control</h3>
+    <p>Testăm problemele de control al accesului care permit utilizatorilor neautorizați să acceseze resurse restricționate.</p>
+    <ul class="list">
+      <li><strong>Escaladarea privilegiilor</strong> – Un utilizator obișnuit poate obține acces administrativ.</li>
+      <li><strong>Acces neautorizat la conturi</strong> – Posibilitatea de a accesa contul altui utilizator prin schimbarea unui ID.</li>
+      <li><strong>Lipsa restricțiilor pe acțiuni importante</strong> – Permite ștergerea sau modificarea datelor altor utilizatori.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3 class="section-subtitle">Cross-Site Scripting (XSS)</h3>
+    <p>Explorăm atacurile XSS, unde input-ul nesigur este injectat în pagină pentru a executa scripturi malițioase.</p>
+    <ul class="list">
+      <li><strong>Stored XSS</strong> – Codul malițios este salvat permanent în baza de date și afectează alți utilizatori.</li>
+      <li><strong>Reflected XSS</strong> – Atacatorul introduce cod malițios printr-o solicitare HTTP, care este executată imediat.</li>
+      <li><strong>DOM-based XSS</strong> – Manipularea nesigură a DOM-ului permite rularea de cod JavaScript injectat.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3 class="section-subtitle">Broken Authentication</h3>
+    <p>Demonstrăm problemele legate de autentificare care pot permite atacatorilor să compromită conturi utilizator.</p>
+    <ul class="list">
+      <li><strong>Parole slabe sau ușor de ghicit</strong> – Permite atacuri brute-force și credential stuffing.</li>
+      <li><strong>Stocarea sesiunii în client-side nesecurizat</strong> – Cookie-uri și token-uri nesigure.</li>
+      <li><strong>Lipsa rate limiting la login</strong> – Permite încercări nelimitate de autentificare.</li>
+      <li><strong>Transmiterea parolelor în text simplu</strong> – Lipsa criptării face parolele ușor de interceptat.</li>
+      <li><strong>Omiterea invalidării sesiunii la logout</strong> – Sesiunile rămân active după deconectare.</li>
+    </ul>
+  </div>
+</div>

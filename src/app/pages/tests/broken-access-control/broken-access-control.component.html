@@ -1,0 +1,45 @@
+<div class="container">
+  <h2 *ngIf="!isLoggedIn">Login</h2>
+  <h2 *ngIf="isLoggedIn">Welcome, {{ viewedUser?.username }}!</h2>
+
+  <form *ngIf="!isLoggedIn" (submit)="onSubmit()" class="login-form">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" [(ngModel)]="username" required>
+
+    <label for="password">Password:</label>
+    <input type="text" id="password" name="password" [(ngModel)]="password" required>
+
+    <button type="submit">Login</button>
+  </form>
+
+  <p *ngIf="authMessage" class="error-message">{{ authMessage }}</p>
+
+  <div *ngIf="isLoggedIn">
+    <p><strong>User ID:</strong> {{ viewedUser?.id }}</p>
+    <p><strong>Role:</strong> {{ viewedUser?.role }}</p>
+    <button (click)="logout()" class="logout-btn">Logout</button>
+
+    <h3>All Users</h3>
+    <div *ngFor="let user of users" class="user-card">
+      <div class="input-group">
+        <label>Username:</label>
+        <input name="user-username" [(ngModel)]="user.username">
+      </div>
+
+      <div class="input-group">
+        <label>Password:</label>
+        <input name="user-password" [(ngModel)]="user.password">
+      </div>
+
+      <div class="input-group">
+        <label>Role:</label>
+        <select name="user-role" [(ngModel)]="user.role">
+          <option value="USER">User</option>
+          <option value="ADMIN">Admin</option>
+        </select>
+      </div>
+
+      <button (click)="updateUser(user)" class="update-btn">Update</button>
+    </div>
+  </div>
+</div>

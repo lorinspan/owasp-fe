@@ -1,0 +1,46 @@
+.container {
+  animation: slideIn 0.8s ease-in-out;
+}
+
+h2 {
+  font-size: 26px;
+  color: #E74C3C;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 85%;
+  padding: 12px;
+  border: 2px solid #E74C3C;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+  border-color: #C0392B;
+  outline: none;
+}
+
+button {
+  margin-top: 5%;
+  background: #E74C3C;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #C0392B;
+  transform: scale(1.05);
+}
+
+p {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
