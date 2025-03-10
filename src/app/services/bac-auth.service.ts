@@ -25,4 +25,9 @@ export class BACAuthService {
   updateUser(id: number, user: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/users/${id}`, user);
   }
+
+  deleteUser(userId: number) {
+    return this.http.delete(`${this.apiUrl}/users/${userId}`);
+  }
+
 }

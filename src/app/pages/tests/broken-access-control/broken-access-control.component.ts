@@ -82,6 +82,13 @@ export class BrokenAccessControlComponent {
     });
   }
 
+  deleteUser(userId: number) {
+    this.authService.deleteUser(userId).subscribe(() => {
+      this.users = this.users.filter(user => user.id !== userId); // 🛑 Elimină userul din listă fără nicio verificare
+    });
+  }
+
+
   logout() {
     localStorage.removeItem('BACToken');
     this.isLoggedIn = false;

@@ -20,7 +20,7 @@
     <button (click)="logout()" class="logout-btn">Logout</button>
 
     <h3>All Users</h3>
-    <div *ngFor="let user of users" class="user-card">
+    <div class="user-card" *ngFor="let user of users">
       <div class="input-group">
         <label>Username:</label>
         <input name="user-username" [(ngModel)]="user.username">
@@ -40,6 +40,8 @@
       </div>
 
       <button (click)="updateUser(user)" class="update-btn">Update</button>
+      <button (click)="deleteUser(user.id)" class="delete-btn">Delete</button> <!-- 🛑 Buton de ștergere nesecurizat -->
     </div>
+
   </div>
 </div>
