@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -11,7 +11,7 @@ import { BACAuthService } from '../../../services/bac-auth.service';
   imports: [FormsModule, CommonModule],
   styleUrls: ['./broken-access-control.component.css']
 })
-export class BrokenAccessControlComponent {
+export class BrokenAccessControlComponent implements OnInit {
   username: string = '';
   password: string = '';
   authMessage: string = '';
@@ -23,12 +23,19 @@ export class BrokenAccessControlComponent {
 
   constructor(private authService: BACAuthService, private route: ActivatedRoute, private router: Router) {
     this.restoreSession();
+  }
 
+  ngOnInit() {
+    // Verifică dacă există user_id în parametrii rutei
     this.route.params.subscribe(params => {
       const userId = params['user_id'];
       if (userId) {
         this.loadUserById(userId);
         this.isLoggedIn = true;
+      } else {
+        // Dacă nu există user_id, redirecționează la /tests/broken-access-control
+        this.router.navigate(['/tests/broken-access-control']);
+        this.viewedUser = this.loggedInUser;
       }
     });
   }
