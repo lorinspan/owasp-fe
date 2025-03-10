@@ -24,6 +24,7 @@
       <li><strong>Stored XSS</strong> – Codul malițios este salvat permanent în baza de date și afectează alți utilizatori.</li>
       <li><strong>Reflected XSS</strong> – Atacatorul introduce cod malițios printr-o solicitare HTTP, care este executată imediat.</li>
       <li><strong>DOM-based XSS</strong> – Manipularea nesigură a DOM-ului permite rularea de cod JavaScript injectat.</li>
+      <li><strong>Stocarea parolelor in clar</strong> – Parolele sunt extrase in clar utilizand request catre backend.</li>
     </ul>
   </div>
 
@@ -38,4 +39,15 @@
       <li><strong>Omiterea invalidării sesiunii la logout</strong> – Sesiunile rămân active după deconectare.</li>
     </ul>
   </div>
+
+  <div class="section">
+    <h3 class="section-subtitle">Cryptographic Failures</h3>
+    <p>Demonstrăm problemele legate de criptografie care pot duce la expunerea datelor sensibile.</p>
+    <ul class="list">
+      <li><strong>Utilizarea algoritmului MD5</strong> – Vulnerabil la atacuri rainbow table și brute-force.</li>
+      <li><strong>Hardcoding de chei criptografice</strong> – Un atacator poate extrage cheia și decripta datele.</li>
+      <li><strong>Stocarea parolelor în mod nesigur</strong> – Parolele sunt salvate într-un mod care le face ușor de spart.</li>
+    </ul>
+  </div>
+
 </div>

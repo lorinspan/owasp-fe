@@ -1,0 +1,88 @@
+/* Animatie de apariție */
+.container {
+  animation: fadeIn 0.8s ease-in-out;
+  max-width: 500px;
+  border-radius: 10px;
+  background: #f8f8f8;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Titlul paginii */
+h2 {
+  font-size: 28px;
+  color: #E74C3C;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Subtitlu */
+p {
+  font-size: 18px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Inputuri pentru username, password și email */
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #E74C3C;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  display: block;
+}
+
+input:focus {
+  border-color: #C0392B;
+  outline: none;
+}
+
+/* Buton de submit */
+button {
+  width: 100%;
+  padding: 12px;
+  background: #E74C3C;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #C0392B;
+  transform: scale(1.05);
+}
+
+/* Mesaj de feedback */
+.success-message {
+  color: #2ECC71;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.error-message {
+  color: #E74C3C;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Animație */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
