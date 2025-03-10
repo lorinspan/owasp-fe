@@ -5,6 +5,8 @@ import { BrokenAuthComponent } from './pages/tests/broken-auth/broken-auth.compo
 import {BrokenAccessControlComponent} from './pages/tests/broken-access-control/broken-access-control.component';
 import {CryptoFailComponent} from './pages/tests/crypto-fail/crypto-fail.component';
 import {SSRFComponent} from './pages/tests/ssrf/ssrf.component';
+import {PathTraversalComponent} from './pages/tests/path-traversal/path-traversal.component';
+import {RemoteCodeExecutionComponent} from './pages/tests/remote-code-execution/remote-code-execution.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,5 +16,7 @@ export const routes: Routes = [
   { path: 'tests/broken-auth', component: BrokenAuthComponent },
   { path: 'tests/crypto-fail', component: CryptoFailComponent },
   { path: 'tests/ssrf', component: SSRFComponent },
+  { path: 'tests/path_traversal', component: PathTraversalComponent },
+  { path: 'tests/rce', component: RemoteCodeExecutionComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' } // Fallback dacă ruta nu există
 ];

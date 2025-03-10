@@ -62,4 +62,30 @@
     </ul>
   </div>
 
+  <div class="section">
+    <h3 class="section-subtitle">Path Traversal</h3>
+    <p>Explorăm atacul Path Traversal, unde un atacator poate accesa fișiere interne ale serverului prin introducerea unor căi nesecurizate.</p>
+    <ul class="list">
+      <li><strong>Citirea fișierelor sensibile</strong> – Utilizatorul poate introduce numele unui fișier pentru a vizualiza conținutul acestuia.</li>
+      <li><strong>Exploatarea fără protecție</strong> – Endpoint-ul de backend permite utilizatorului să trimită o cale personalizată, fără restricții.</li>
+      <li><strong>Accesarea fișierelor interne</strong> – Un atacator poate introduce <code>../../supersecretfolder/supersecretfile</code> pentru a citi fișiere din afara folderului permis.</li>
+      <li><strong>Expunerea datelor confidențiale</strong> – Atacul permite accesul la configurații, parole, chei API și alte date sensibile.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3 class="section-subtitle">Remote Code Execution (RCE)</h3>
+    <p>Explorăm atacurile de tip Remote Code Execution (RCE), unde un atacator poate executa comenzi malițioase la distanță pe server, exploatând o vulnerabilitate în aplicație.</p>
+    <ul class="list">
+      <li><strong>Executarea comenzilor la distanță</strong> – Atacatorii pot trimite comenzi malițioase către server, care vor fi executate pe serverul de aplicație.</li>
+      <li><strong>Vulnerabilități de tip input nesigur</strong> – Aplicațiile care permit utilizatorilor să introducă date nesigure (de exemplu, input de tip text) fără a le valida sau filtra pot expune serverul la RCE.</li>
+      <li><strong>Accesibilitatea pentru utilizatori non-admini</strong> – În mod neașteptat, unii utilizatori non-admini pot exploata aceste vulnerabilități, ceea ce le permite să execute comenzi pe server, având acces la date sensibile sau la funcții administrative.</li>
+      <li><strong>Injecție de comenzi</strong> – Aplicațiile care permit injecția de comenzi, de exemplu, prin execuția comenzilor sistemului, pot fi ușor exploatate de atacatori pentru a compromite serverul.</li>
+      <li><strong>Escaladarea privilegiilor</strong> – Chiar dacă un atacator are privilegii de utilizator, exploatarea unei vulnerabilități de RCE poate duce la escaladarea privilegiilor, oferindu-i acces complet la server.</li>
+      <li><strong>Executarea de malware</strong> – Atacatorii pot folosi RCE pentru a instala malware pe server, care poate compromite întreaga infrastructură și poate duce la furtul de date sau la controlul serverului de la distanță.</li>
+    </ul>
+  </div>
+
+
+
 </div>

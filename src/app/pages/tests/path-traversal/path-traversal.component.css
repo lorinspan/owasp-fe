@@ -1,0 +1,58 @@
+.container {
+  max-width: 600px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+p {
+  margin-top: 5%;
+}
+
+button {
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
+
+h2 {
+  color: #c0392b;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #c0392b;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+  word-wrap: break-word;
+}
+
+.file-content {
+  margin-top: 5%;
+  white-space: pre-line; /* ✅ Păstrează newline (\r\n) */
+  font-family: 'Courier New', Courier, monospace;
+  background: #fffbe6;
+  padding: 10px;
+  border-left: 5px solid #f39c12;
+  font-size: 16px;
+  color: #333;
+}
