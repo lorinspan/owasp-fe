@@ -19,7 +19,6 @@ export class BrokenAuthComponent {
   sessionToken: string = '';
 
   constructor(private authService: BrokenAuthAuthService) {
-    this.checkLoginStatus();
   }
 
   onSubmit() {
@@ -50,12 +49,4 @@ export class BrokenAuthComponent {
     this.authMessage = '';
   }
 
-  checkLoginStatus() {
-    const token = localStorage.getItem('BAAuthToken');
-    if (token) {
-      this.isLoggedIn = true;
-      this.sessionToken = token;
-      this.authMessage = '✅ Authenticated';
-    }
-  }
 }
