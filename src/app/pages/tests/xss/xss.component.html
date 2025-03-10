@@ -1,19 +1,25 @@
-<div class="container">
-  <h2>📝 User Feedback Form</h2>
+<div class="feedback-container">
+  <h2>Share Your Feedback</h2>
 
-  <form (submit)="submitFeedback()">
-    <label for="name">Your Name:</label>
-    <input type="text" id="name" [(ngModel)]="name" name="name" required>
+  <form (submit)="submitFeedback()" class="feedback-form">
+    <div class="input-group">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" [(ngModel)]="name" name="name" placeholder="Enter your name..." required>
+    </div>
 
-    <label for="message">Your Message:</label>
-    <textarea id="message" [(ngModel)]="message" name="message" required></textarea>
+    <div class="input-group">
+      <label for="message">Your Message</label>
+      <textarea id="message" [(ngModel)]="message" name="message" placeholder="Write your feedback..." required></textarea>
+    </div>
 
-    <button type="submit">Submit</button>
+    <button type="submit" class="submit-btn">Submit Feedback</button>
   </form>
 
-  <h3>📢 Public Feedback</h3>
-  <div *ngFor="let feedback of feedbackList">
-    <strong>{{ feedback.name }}:</strong>
-    <p [innerHTML]="feedback.message"></p> <!-- Acum este vulnerabil la XSS -->
+  <h3>Public Feedback</h3>
+  <div class="feedback-list">
+    <div class="feedback-item" *ngFor="let feedback of feedbackList">
+      <strong class="feedback-name">{{ feedback.name }}</strong>
+      <p class="feedback-message" [innerHTML]="feedback.message"></p> <!-- Vulnerabil la XSS -->
+    </div>
   </div>
 </div>

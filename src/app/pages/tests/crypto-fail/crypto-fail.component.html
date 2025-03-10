@@ -1,57 +1,69 @@
 <div class="container">
-  <div class="tab-container">
+  <div class="tab-container" *ngIf="!isLoggedIn">
     <button class="tab-btn" [class.active]="activeTab === 'register'" (click)="switchTab('register')">Register</button>
     <button class="tab-btn" [class.active]="activeTab === 'login'" (click)="switchTab('login')">Login</button>
   </div>
 
-  <h2 *ngIf="!isLoggedIn"> {{ activeTab === 'register' ? 'Register' : 'Login' }}</h2>
+  <h2 *ngIf="!isLoggedIn">{{ activeTab === 'register' ? 'Create Account' : 'Sign In' }}</h2>
   <h2 *ngIf="isLoggedIn">Welcome, {{ loggedInUser?.username }}!</h2>
 
   <!-- FORMULAR REGISTER -->
-  <form *ngIf="activeTab === 'register' && !isLoggedIn" (ngSubmit)="onRegister()" class="register-form">
-    <label for="username">Username:</label>
-    <input type="text" id="username" [(ngModel)]="username" name="username" required>
+  <form *ngIf="activeTab === 'register' && !isLoggedIn" (ngSubmit)="onRegister()" class="auth-form">
+    <div class="input-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" [(ngModel)]="username" name="username" required>
+    </div>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" [(ngModel)]="password" name="password" required>
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" required>
+    </div>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" [(ngModel)]="email" name="email" required>
+    <div class="input-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" [(ngModel)]="email" name="email" required>
+    </div>
 
-    <button type="submit">Register</button>
+    <button type="submit" class="btn primary-btn">Register</button>
   </form>
 
   <!-- FORMULAR LOGIN -->
-  <form *ngIf="activeTab === 'login' && !isLoggedIn" (ngSubmit)="onLogin()" class="login-form">
-    <label for="login-username">Username:</label>
-    <input type="text" id="login-username" [(ngModel)]="loginUsername" name="loginUsername" required>
+  <form *ngIf="activeTab === 'login' && !isLoggedIn" (ngSubmit)="onLogin()" class="auth-form">
+    <div class="input-group">
+      <label for="login-username">Username</label>
+      <input type="text" id="login-username" [(ngModel)]="loginUsername" name="loginUsername" required>
+    </div>
 
-    <label for="login-password">Password:</label>
-    <input type="password" id="login-password" [(ngModel)]="loginPassword" name="loginPassword" required>
+    <div class="input-group">
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" [(ngModel)]="loginPassword" name="loginPassword" required>
+    </div>
 
-    <button type="submit">Login</button>
+    <button type="submit" class="btn primary-btn">Login</button>
   </form>
 
-  <div *ngIf="isLoggedIn">
+  <div *ngIf="isLoggedIn" class="user-info">
     <p><strong>Username:</strong> {{ loggedInUser?.username }}</p>
     <p><strong>Password (MD5):</strong> {{ loggedInUser?.password }}</p>
     <p><strong>Email:</strong> {{ loggedInUser?.email }}</p>
 
-    <form (ngSubmit)="onChangeEmail()">
-      <label for="new-email">New Email:</label>
-      <input type="email" id="new-email" [(ngModel)]="newEmail" name="newEmail" required>
-      <button type="submit">Change Email</button>
+    <form (ngSubmit)="onChangeEmail()" class="change-email-form">
+      <div class="input-group">
+        <label for="new-email">New Email</label>
+        <input type="email" id="new-email" [(ngModel)]="newEmail" name="newEmail" required>
+      </div>
+      <button type="submit" class="btn secondary-btn">Change Email</button>
     </form>
 
-    <button (click)="logout()">Logout</button>
   </div>
+    <button *ngIf="isLoggedIn" (click)="logout()" class="btn logout-btn">Logout</button>
 </div>
 
-<!-- MODALUL EXTREM DE ENERVANT -->
+<!-- MODALUL EXAGERAT DE ENERVANT -->
 <div id="annoying-modal" class="modal">
   <div class="modal-content">
-    <h2>🎉 Ai câștigat un iPhone 16! 🎉</h2>
-    <p>Apasă aici pentru a-l revendica acum!</p>
-    <button id="claim-btn">Revendică iPhone-ul!</button>
+    <h2>🎁 FELICITĂRI! SUNTEȚI UN CÂȘTIGĂTOR! 🎁</h2>
+    <p>⚡ APĂSAȚI AICI PENTRU A PRIMI UN IPHONE 16 PRO MAX! ⚡</p>
+    <button id="claim-btn" class="btn claim-btn" (click)="claimPrize()">🔥 Revendică premiul 🔥</button>
   </div>
 </div>

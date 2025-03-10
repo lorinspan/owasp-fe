@@ -1,64 +1,128 @@
-nav {
-  background: linear-gradient(90deg, #2C3E50, #1ABC9C);
-  padding: 10px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* 🔹 Navbar lateral colapsat inițial */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 60px; /* 📌 Doar cât să cuprindă emoji-urile */
+  height: 100vh;
+  background: linear-gradient(180deg, #2C3E50, #1ABC9C);
+  transition: width 0.3s ease-in-out;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+  overflow-x: hidden;
+  white-space: nowrap;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
 
-ul {
+.home {
+  position: relative;
+  padding-bottom: 10px; /* Asigură-te că există spațiu sub element pentru efect */
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(180deg, #2C3E50, #1ABC9C);
+}
+
+
+/* 📌 Se extinde la hover */
+.sidebar:hover {
+  width: 410px;
+}
+
+/* 📌 Lista de link-uri */
+.sidebar ul {
   list-style: none;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 
-li {
-  flex: 1;
-  text-align: center;
+/* 📌 Fiecare element din meniu */
+.sidebar li {
+  width: 100%;
 }
 
-li a {
+/* 📌 Link-urile */
+.sidebar a {
   display: flex;
-  justify-content: center;
   align-items: center;
+  padding: 12px 10px;
   color: white;
-  text-decoration: none;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
-  padding: 12px;
-  border-radius: 6px;
+  text-decoration: none;
   transition: all 0.3s ease-in-out;
-  min-width: 140px;
+  overflow: hidden;
   white-space: nowrap;
+  width: 100%;
 }
 
-li a:hover {
-  background: white;
-  color: #1ABC9C;
-  transform: scale(1.05);
+/* 📌 Emoji-urile */
+.sidebar a span.emoji {
+  font-size: 22px;
+  text-align: center;
+  width: 60px; /* 📌 Spațiu fix pentru emoji */
 }
 
-/* 🔽 Navbar colapsabil pentru ecrane mici */
+/* 📌 Inițial ascundem textul */
+.sidebar a span.text {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+}
+
+/* 📌 Afișăm textul doar la hover */
+.sidebar:hover a span.text {
+  opacity: 1;
+  width: auto;
+  margin-left: 10px;
+}
+
+/* 📌 Efect la hover */
+.sidebar a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+}
+
+/* 🔹 Layout pentru conținutul paginii */
+.main-content {
+  margin-left: 80px;
+  padding: 30px;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+/* 📌 Mutăm conținutul când navbar-ul e extins */
+.sidebar:hover ~ .main-content {
+  margin-left: 260px;
+}
+
+/* 🔹 Responsivitate */
 @media screen and (max-width: 768px) {
-  nav {
-    padding: 10px;
+  .sidebar {
+    width: 50px;
   }
 
-  ul {
-    flex-direction: column;
-    align-items: stretch;
+  .sidebar:hover {
+    width: 180px;
   }
 
-  li {
-    width: 100%;
+  .main-content {
+    margin-left: 70px;
   }
 
-  li a {
-    width: 100%;
-    padding: 15px;
-    font-size: 18px;
+  .sidebar:hover ~ .main-content {
+    margin-left: 190px;
   }
 }

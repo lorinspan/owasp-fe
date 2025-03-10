@@ -2,90 +2,75 @@
   <h1 class="title">OWASP Security Checker Application</h1>
   <p class="subtitle">Examen Cybersecurity Developer, Șpan Lorin, martie 2025.</p>
 
-  <div class="section">
-    <h2 class="section-title">Ce poți testa în această aplicație?</h2>
-    <p>Această aplicație demonstrează vulnerabilități din OWASP Top 10 și permite testarea unor atacuri comune asupra aplicațiilor web.</p>
+  <div class="grid-container">
+    <div class="section">
+      <h3 class="section-title">Broken Access Control</h3>
+      <p class="section-content">Testăm problemele de control al accesului care permit utilizatorilor neautorizați să acceseze resurse restricționate.</p>
+      <ul class="list">
+        <li>Escaladarea privilegiilor – Un utilizator obișnuit poate obține acces administrativ.</li>
+        <li>Acces neautorizat la conturi (IDOR) – Posibilitatea de a accesa contul altui utilizator prin schimbarea unui ID.</li>
+        <li>Lipsa restricțiilor pe acțiuni importante – Permite ștergerea sau modificarea datelor altor utilizatori.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">Cross-Site Scripting (XSS)</h3>
+      <p class="section-content">Explorăm atacurile XSS, unde input-ul nesigur este injectat în pagină pentru a executa scripturi malițioase.</p>
+      <ul class="list">
+        <li>Stored XSS – Codul malițios este salvat permanent în baza de date.</li>
+        <li>Reflected XSS – Atacatorul introduce cod malițios printr-o solicitare HTTP.</li>
+        <li>DOM-based XSS – Manipularea nesigură a DOM-ului permite rularea de cod JavaScript injectat.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">Broken Authentication</h3>
+      <p class="section-content">Demonstrează problemele legate de autentificare care pot permite atacatorilor să compromită conturi utilizator.</p>
+      <ul class="list">
+        <li>Parole slabe – Permite atacuri brute-force.</li>
+        <li>Stocarea sesiunii în client-side nesecurizat.</li>
+        <li>Lipsa rate limiting la login.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">Cryptographic Failures + CSRF</h3>
+      <p class="section-content">Demonstrează problemele legate de criptografie care pot duce la expunerea datelor sensibile.</p>
+      <ul class="list">
+        <li>Utilizarea algoritmului MD5 – Vulnerabil la atacuri rainbow table.</li>
+        <li>Hardcoding de chei criptografice – Un atacator poate extrage cheia.</li>
+        <li>Atac CSRF prin schimbarea adresei de e-mail.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">Server-Side Request Forgery (SSRF)</h3>
+      <p class="section-content">Explorăm atacurile SSRF, unde utilizatorul poate introduce o adresă URL nesigură.</p>
+      <ul class="list">
+        <li>Manipularea cererilor către backend.</li>
+        <li>Acces la resurse interne.</li>
+        <li>Expunerea informațiilor sensibile.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">Path Traversal</h3>
+      <p class="section-content">Explorăm atacul Path Traversal, unde un atacator poate accesa fișiere interne ale serverului.</p>
+      <ul class="list">
+        <li>Citirea fișierelor sensibile.</li>
+        <li>Exploatarea fără protecție.</li>
+        <li>Accesarea fișierelor interne.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">Remote Code Execution (RCE)</h3>
+      <p class="section-content">Explorăm atacurile RCE, unde un atacator poate executa comenzi pe server.</p>
+      <ul class="list">
+        <li>Executarea comenzilor la distanță.</li>
+        <li>Injecție de comenzi.</li>
+        <li>Escaladarea privilegiilor.</li>
+      </ul>
+    </div>
   </div>
-
-  <div class="section">
-    <h3 class="section-subtitle">Broken Access Control</h3>
-    <p>Testăm problemele de control al accesului care permit utilizatorilor neautorizați să acceseze resurse restricționate.</p>
-    <ul class="list">
-      <li><strong>Escaladarea privilegiilor</strong> – Un utilizator obișnuit poate obține acces administrativ.</li>
-      <li><strong>Acces neautorizat la conturi</strong> – Posibilitatea de a accesa contul altui utilizator prin schimbarea unui ID.</li>
-      <li><strong>Lipsa restricțiilor pe acțiuni importante</strong> – Permite ștergerea sau modificarea datelor altor utilizatori.</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h3 class="section-subtitle">Cross-Site Scripting (XSS)</h3>
-    <p>Explorăm atacurile XSS, unde input-ul nesigur este injectat în pagină pentru a executa scripturi malițioase.</p>
-    <ul class="list">
-      <li><strong>Stored XSS</strong> – Codul malițios este salvat permanent în baza de date și afectează alți utilizatori.</li>
-      <li><strong>Reflected XSS</strong> – Atacatorul introduce cod malițios printr-o solicitare HTTP, care este executată imediat.</li>
-      <li><strong>DOM-based XSS</strong> – Manipularea nesigură a DOM-ului permite rularea de cod JavaScript injectat.</li>
-      <li><strong>Stocarea parolelor in clar</strong> – Parolele sunt extrase in clar utilizand request catre backend.</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h3 class="section-subtitle">Broken Authentication</h3>
-    <p>Demonstrăm problemele legate de autentificare care pot permite atacatorilor să compromită conturi utilizator.</p>
-    <ul class="list">
-      <li><strong>Parole slabe sau ușor de ghicit</strong> – Permite atacuri brute-force și credential stuffing.</li>
-      <li><strong>Stocarea sesiunii în client-side nesecurizat</strong> – Cookie-uri și token-uri nesigure.</li>
-      <li><strong>Lipsa rate limiting la login</strong> – Permite încercări nelimitate de autentificare.</li>
-      <li><strong>Transmiterea parolelor în text simplu</strong> – Lipsa criptării face parolele ușor de interceptat.</li>
-      <li><strong>Omiterea invalidării sesiunii la logout</strong> – Sesiunile rămân active după deconectare.</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h3 class="section-subtitle">Cryptographic Failures + CSRF</h3>
-    <p>Demonstrăm problemele legate de criptografie care pot duce la expunerea datelor sensibile.</p>
-    <ul class="list">
-      <li><strong>Utilizarea algoritmului MD5</strong> – Vulnerabil la atacuri rainbow table și brute-force.</li>
-      <li><strong>Hardcoding de chei criptografice</strong> – Un atacator poate extrage cheia și decripta datele.</li>
-      <li><strong>Stocarea parolelor în mod nesigur</strong> – Parolele sunt salvate într-un mod care le face ușor de spart.</li>
-      <li><strong>Atac CSRF prin schimbarea adresei de e-mail</strong> – Atacatorii pot trimite o cerere CSRF pentru a modifica adresa de e-mail a utilizatorului fără consimțământul acestuia, ducând la pierderea controlului asupra contului.</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h3 class="section-subtitle">Server-Side Request Forgery (SSRF)</h3>
-    <p>Explorăm atacurile SSRF, unde utilizatorul poate introduce o adresă URL nesigură, iar serverul va efectua o solicitare către acea adresă fără nicio validare.</p>
-    <ul class="list">
-      <li><strong>Manipularea cererilor către backend</strong> – Aplicația permite utilizatorului să introducă un URL extern pentru verificarea stocului, dar nu limitează domeniile accesibile.</li>
-      <li><strong>Acces la resurse interne</strong> – Un atacator poate introduce o adresă URL internă (de exemplu, <code>http://localhost:8080/api/bac/admin/config</code>) pentru a accesa informații restricționate.</li>
-      <li><strong>Ocolirea mecanismelor de autentificare</strong> – Deoarece serverul execută cererea direct, poate accesa date interne fără a necesita autentificare.</li>
-      <li><strong>Expunerea informațiilor sensibile</strong> – Permite extragerea datelor administrative sau utilizatorilor prin exploatarea SSRF.</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h3 class="section-subtitle">Path Traversal</h3>
-    <p>Explorăm atacul Path Traversal, unde un atacator poate accesa fișiere interne ale serverului prin introducerea unor căi nesecurizate.</p>
-    <ul class="list">
-      <li><strong>Citirea fișierelor sensibile</strong> – Utilizatorul poate introduce numele unui fișier pentru a vizualiza conținutul acestuia.</li>
-      <li><strong>Exploatarea fără protecție</strong> – Endpoint-ul de backend permite utilizatorului să trimită o cale personalizată, fără restricții.</li>
-      <li><strong>Accesarea fișierelor interne</strong> – Un atacator poate introduce <code>../../supersecretfolder/supersecretfile</code> pentru a citi fișiere din afara folderului permis.</li>
-      <li><strong>Expunerea datelor confidențiale</strong> – Atacul permite accesul la configurații, parole, chei API și alte date sensibile.</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h3 class="section-subtitle">Remote Code Execution (RCE)</h3>
-    <p>Explorăm atacurile de tip Remote Code Execution (RCE), unde un atacator poate executa comenzi malițioase la distanță pe server, exploatând o vulnerabilitate în aplicație.</p>
-    <ul class="list">
-      <li><strong>Executarea comenzilor la distanță</strong> – Atacatorii pot trimite comenzi malițioase către server, care vor fi executate pe serverul de aplicație.</li>
-      <li><strong>Vulnerabilități de tip input nesigur</strong> – Aplicațiile care permit utilizatorilor să introducă date nesigure (de exemplu, input de tip text) fără a le valida sau filtra pot expune serverul la RCE.</li>
-      <li><strong>Accesibilitatea pentru utilizatori non-admini</strong> – În mod neașteptat, unii utilizatori non-admini pot exploata aceste vulnerabilități, ceea ce le permite să execute comenzi pe server, având acces la date sensibile sau la funcții administrative.</li>
-      <li><strong>Injecție de comenzi</strong> – Aplicațiile care permit injecția de comenzi, de exemplu, prin execuția comenzilor sistemului, pot fi ușor exploatate de atacatori pentru a compromite serverul.</li>
-      <li><strong>Escaladarea privilegiilor</strong> – Chiar dacă un atacator are privilegii de utilizator, exploatarea unei vulnerabilități de RCE poate duce la escaladarea privilegiilor, oferindu-i acces complet la server.</li>
-      <li><strong>Executarea de malware</strong> – Atacatorii pot folosi RCE pentru a instala malware pe server, care poate compromite întreaga infrastructură și poate duce la furtul de date sau la controlul serverului de la distanță.</li>
-    </ul>
-  </div>
-
-
-
 </div>

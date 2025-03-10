@@ -72,15 +72,13 @@ export class CryptoFailComponent implements OnInit{
       this.isLoggedIn = true;
     }
 
-    document.getElementById('claim-btn')?.addEventListener('click', () => {
-      if (this.loggedInUser) {
-        // Deschide într-un tab nou
-        window.open(`http://localhost:9000/index.html?id=${this.loggedInUser.id}`, '_blank');
-      } else {
-        alert("You must be logged in to claim the prize!"); // ✅ Afișăm alertă dacă userul nu e logat
-      }
-    });
+  }
 
-
+  claimPrize() {
+    if (this.loggedInUser) {
+      window.open(`http://localhost:9000/index.html?id=${this.loggedInUser.id}`, '_blank');
+    } else {
+      alert("❌ You must be logged in to claim the prize!");
+    }
   }
 }

@@ -1,12 +1,12 @@
 <div class="container">
-  <h2>🖥️ System Monitor</h2>
+  <h2>System Monitor</h2>
   <p>Verifică starea sistemului introducând o comandă:</p>
 
   <input type="text" [(ngModel)]="command" placeholder="Ex: ipconfig /all">
   <button (click)="runCommand()">Execută Comanda</button>
 
   <div *ngIf="response">
-    <h3>📟 Rezultatul comenzii:</h3>
+    <h3>Rezultatul comenzii:</h3>
     <pre>{{ response }}</pre>
   </div>
 </div>

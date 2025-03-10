@@ -1,27 +1,35 @@
-<div class="container">
+<div class="auth-container">
   <h2 *ngIf="!isLoggedIn">Login</h2>
   <h2 *ngIf="isLoggedIn">Welcome, {{ viewedUser?.username }}!</h2>
 
   <form *ngIf="!isLoggedIn" (submit)="onSubmit()" class="login-form">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" [(ngModel)]="username" required>
+    <div class="input-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" [(ngModel)]="username" required>
+    </div>
 
-    <label for="password">Password:</label>
-    <input type="text" id="password" name="password" [(ngModel)]="password" required>
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required>
+    </div>
 
-    <button type="submit">Login</button>
+    <button type="submit" class="btn primary-btn">Login</button>
   </form>
 
   <p *ngIf="authMessage" class="error-message">{{ authMessage }}</p>
 
-  <div *ngIf="isLoggedIn">
-    <p><strong>User ID:</strong> {{ viewedUser?.id }}</p>
-    <p><strong>Role:</strong> {{ viewedUser?.role }}</p>
-    <button (click)="logout()" class="logout-btn">Logout</button>
+  <div *ngIf="isLoggedIn" class="dashboard">
+    <div class="user-info">
+      <p><strong>User ID:</strong> {{ viewedUser?.id }}</p>
+      <p><strong>Role:</strong> {{ viewedUser?.role }}</p>
+    </div>
 
-    <button (click)="loadAdminPanel()" class="admin-btn">Access Admin Panel</button> <!-- 🛑 Butonul apare pentru toți userii -->
+    <div class="btn-group">
+      <button (click)="logout()" class="btn logout-btn">Logout</button>
+      <button (click)="loadAdminPanel()" class="btn admin-btn">Access Admin Panel</button>
+    </div>
 
-    <div *ngIf="adminData">
+    <div *ngIf="adminData" class="admin-panel">
       <h3>Server Admin Panel</h3>
       <p><strong>Debug Mode:</strong> {{ adminData.debug }}</p>
       <p><strong>Secret Key:</strong> {{ adminData.encryptionKey }}</p>
@@ -29,28 +37,32 @@
       <p><strong>Database URL:</strong> {{ adminData.databaseUrl }}</p>
     </div>
 
-    <h3>All Users</h3>
-    <div class="user-card" *ngFor="let user of users">
-      <div class="input-group">
-        <label>Username:</label>
-        <input name="user-username" [(ngModel)]="user.username">
-      </div>
+    <h3>Manage Users</h3>
+    <div class="user-list">
+      <div class="user-card" *ngFor="let user of users">
+        <div class="input-group">
+          <label>Username</label>
+          <input name="user-username" [(ngModel)]="user.username">
+        </div>
 
-      <div class="input-group">
-        <label>Password:</label>
-        <input name="user-password" [(ngModel)]="user.password">
-      </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" name="user-password" [(ngModel)]="user.password">
+        </div>
 
-      <div class="input-group">
-        <label>Role:</label>
-        <select name="user-role" [(ngModel)]="user.role">
-          <option value="USER">User</option>
-          <option value="ADMIN">Admin</option>
-        </select>
-      </div>
+        <div class="input-group">
+          <label>Role</label>
+          <select name="user-role" [(ngModel)]="user.role">
+            <option value="USER">User</option>
+            <option value="ADMIN">Admin</option>
+          </select>
+        </div>
 
-      <button (click)="updateUser(user)" class="update-btn">Update</button>
-      <button (click)="deleteUser(user.id)" class="delete-btn">Delete</button>
+        <div class="btn-group">
+          <button (click)="updateUser(user)" class="btn update-btn">Update</button>
+          <button (click)="deleteUser(user.id)" class="btn delete-btn">Delete</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,23 +1,89 @@
 .container {
   animation: fadeIn 1s ease-in-out;
-  max-width: 800px;
+  max-width: 1500px;
   margin: 40px auto;
   padding: 20px;
   background: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  padding-bottom: 3%;
+  padding-top: 5%;
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 36px;
   color: #1ABC9C;
   font-weight: bold;
   margin-bottom: 20px;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* ✅ Grid pentru organizare mai bună */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(400px, 1fr)); /* 📌 Max 2 coloane */
+  gap: 20px;
+  padding: 10px;
+  justify-content: center; /* 📌 Centrează conținutul */
+}
+
+.section {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #007b5e;
+  text-align: center;
 }
 
 p {
-  font-size: 18px;
-  color: #555;
+  margin-bottom: 5%;
+}
+
+.section-content {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ✅ Bullet points mai clare */
+.list {
+  padding-left: 20px;
+}
+
+.list li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  list-style: none;
+  position: relative;
+}
+
+.list li::before {
+  content: "✔";
+  color: #1ABC9C;
+  font-weight: bold;
+  margin-right: 10px;
 }
 
 @keyframes fadeIn {
@@ -25,43 +91,8 @@ p {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.title {
-  text-align: center;
-  font-size: 28px;
-  color: #007b5e;
-}
-
-.subtitle {
-  text-align: center;
-  font-size: 16px;
-  color: #444;
-}
-
-.section {
-  margin-top: 30px;
-  padding: 20px;
-  background: white;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.section-title {
-  font-size: 22px;
-  margin-bottom: 10px;
-  color: #007b5e;
-}
-
-.section-subtitle {
-  font-size: 18px;
-  margin-bottom: 8px;
-  color: #00574B;
-}
-
-.list {
-  padding-left: 20px;
-}
-
-.list li {
-  margin-bottom: 8px;
-  line-height: 1.6;
+@media (max-width: 900px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* 📌 Doar 1 coloană pe ecrane mici */
+  }
 }

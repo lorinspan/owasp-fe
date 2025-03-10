@@ -1,80 +1,196 @@
-/* Container general */
+/* ✅ Stil general */
 .container {
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
   animation: fadeIn 0.8s ease-in-out;
-  max-width: 500px;
-  border-radius: 10px;
-  background: #f8f8f8;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Tab-uri */
-.tab-container {
-  display: flex;
-  justify-content: center;
+/* ✅ Titluri */
+h2 {
+  font-size: 26px;
+  color: #3498DB;
+  font-weight: bold;
   margin-bottom: 20px;
 }
 
-.tab-btn {
-  padding: 10px 20px;
-  margin: 5px;
-  cursor: pointer;
-  background: #E74C3C;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  transition: all 0.3s ease-in-out;
-}
-
-.tab-btn.active {
-  background: #C0392B;
-}
-
-.tab-btn:hover {
-  background: #C0392B;
-}
-
-p {
-  margin-top: 2%;
+/* ✅ Grup input */
+.input-group {
+  text-align: left;
+  margin-bottom: 20px;
 }
 
 label {
-  margin-top: 3%;
-}
-
-button {
-  margin-top: 3%;
-}
-
-/* MODAL ENERVANT */
-.modal {
-  position: fixed;
-  top: 75%;
-  left: 55%;
-  background: red;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
-  border: 5px solid yellow;
-  animation: flash 0.3s infinite alternate, shake 0.2s infinite alternate;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
 }
 
-.modal button {
+input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #3498DB;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+}
+
+input:focus {
+  border-color: #2980B9;
+  outline: none;
+  box-shadow: 0 0 6px rgba(52, 152, 219, 0.5);
+}
+
+/* ✅ Butoane */
+.btn {
+  background: #3498DB;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  max-width: 350px;
   margin-top: 5%;
 }
 
-.modal p {
-  margin-top: 1%;
+.btn:hover {
+  background: #2980B9;
+  transform: scale(1.05);
 }
 
+/* 🔴 Butoane secundare */
+.secondary-btn {
+  background-color: #2ECC71;
+}
+
+.secondary-btn:hover {
+  background-color: #27AE60;
+}
+
+/* 🔴 Logout button */
+.logout-btn {
+  background-color: #E74C3C;
+}
+
+.logout-btn:hover {
+  background-color: #C0392B;
+}
+
+/* ✅ Container pentru user info */
+.user-info {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-left: 5px solid #3498DB;
+  border-radius: 8px;
+  text-align: left;
+}
+
+h2 {
+  margin-top: 5%;
+}
+
+label {
+  margin-top: 10%;
+}
+
+button {
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+
+/* 🔥 MODAL SUPER ENERVANT */
+.modal {
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: red;
+  color: yellow;
+  padding: 25px;
+  font-size: 22px;
+  font-weight: bold;
+  border: 5px solid yellow;
+  text-align: center;
+  border-radius: 10px;
+  animation: flash 0.2s infinite alternate, shake 0.2s infinite alternate, bounce 2s infinite alternate;
+  z-index: 9999;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+}
+
+/* 🔥 TEXT SCANDALOS */
+.modal h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: yellow;
+  text-shadow: 2px 2px 5px red;
+  animation: flash-text 0.3s infinite alternate;
+}
+
+.modal p {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px black;
+  animation: flash-text 0.3s infinite alternate-reverse;
+}
+
+/* 🔥 BUTON PULSATORIU */
+.claim-btn {
+  margin-top: 5%;
+  background: yellow;
+  color: red;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 15px;
+  border: 5px solid red;
+  animation: pulse 0.5s infinite alternate;
+}
+
+.claim-btn:hover {
+  background: white;
+  color: black;
+  transform: scale(1.1);
+}
+
+/* 🔥 ANIMAȚII 🔥 */
 @keyframes flash {
   from { background: red; color: yellow; }
   to { background: yellow; color: red; }
 }
 
+@keyframes flash-text {
+  from { color: white; }
+  to { color: yellow; }
+}
+
 @keyframes shake {
-  from { transform: translateX(-10px); }
-  to { transform: translateX(10px); }
+  from { transform: translate(-50%, -5px); }
+  to { transform: translate(-50%, 5px); }
+}
+
+@keyframes bounce {
+  from { transform: translate(-50%, 10px); }
+  to { transform: translate(-50%, -10px); }
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+/* ✅ Animație fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

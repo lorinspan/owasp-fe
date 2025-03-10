@@ -1,12 +1,12 @@
 <div class="container">
-  <h2>🔍 Citește fișierul</h2>
+  <h2>Citește fișierul</h2>
   <p>Introduceți calea fișierului pentru a vizualiza conținutul:</p>
 
   <input type="text" [(ngModel)]="filePath" placeholder="Ex: briosa">
   <button (click)="readFile()">Citește Fișier</button>
 
   <div *ngIf="response">
-    <h3>📂 Conținutul fișierului:</h3>
+    <h3>Conținutul fișierului:</h3>
     <pre class="file-content">{{ response }}</pre> <!-- ✅ Formatare corectă -->
   </div>
 </div>
