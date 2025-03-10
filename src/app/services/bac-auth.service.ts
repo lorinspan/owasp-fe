@@ -30,4 +30,8 @@ export class BACAuthService {
     return this.http.delete(`${this.apiUrl}/users/${userId}`);
   }
 
+  getAdminConfig(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/admin/config`);
+  }
+
 }

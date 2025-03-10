@@ -19,6 +19,16 @@
     <p><strong>Role:</strong> {{ viewedUser?.role }}</p>
     <button (click)="logout()" class="logout-btn">Logout</button>
 
+    <button (click)="loadAdminPanel()" class="admin-btn">Access Admin Panel</button> <!-- 🛑 Butonul apare pentru toți userii -->
+
+    <div *ngIf="adminData">
+      <h3>Server Admin Panel</h3>
+      <p><strong>Debug Mode:</strong> {{ adminData.debug }}</p>
+      <p><strong>Secret Key:</strong> {{ adminData.encryptionKey }}</p>
+      <p><strong>Log Level:</strong> {{ adminData.logLevel }}</p>
+      <p><strong>Database URL:</strong> {{ adminData.databaseUrl }}</p>
+    </div>
+
     <h3>All Users</h3>
     <div class="user-card" *ngFor="let user of users">
       <div class="input-group">
@@ -40,8 +50,7 @@
       </div>
 
       <button (click)="updateUser(user)" class="update-btn">Update</button>
-      <button (click)="deleteUser(user.id)" class="delete-btn">Delete</button> <!-- 🛑 Buton de ștergere nesecurizat -->
+      <button (click)="deleteUser(user.id)" class="delete-btn">Delete</button>
     </div>
-
   </div>
 </div>

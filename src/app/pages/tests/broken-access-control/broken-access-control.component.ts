@@ -17,8 +17,9 @@ export class BrokenAccessControlComponent {
   authMessage: string = '';
   isLoggedIn: boolean = false;
   loggedInUser: any = null;
-  viewedUser: any = null; // Userul vizualizat pe baza URL-ului
+  viewedUser: any = null;
   users: any[] = [];
+  adminData: any = null; // ✅ Conține date sensibile ale serverului
 
   constructor(private authService: BACAuthService, private route: ActivatedRoute, private router: Router) {
     this.restoreSession();
@@ -27,7 +28,7 @@ export class BrokenAccessControlComponent {
       const userId = params['user_id'];
       if (userId) {
         this.loadUserById(userId);
-        this.isLoggedIn = true; // ✅ Chiar dacă nu este logat, se consideră că vizualizează un user
+        this.isLoggedIn = true;
       }
     });
   }
@@ -38,7 +39,7 @@ export class BrokenAccessControlComponent {
       this.loggedInUser = JSON.parse(storedUser);
       this.isLoggedIn = true;
     }
-      this.loadUsers();
+    this.loadUsers();
   }
 
   onSubmit() {
@@ -48,10 +49,7 @@ export class BrokenAccessControlComponent {
         this.isLoggedIn = true;
         this.loggedInUser = user;
         this.authMessage = 'Authenticated';
-
-        // 🔥 După login, îl redirecționează la pagina userului logat
         this.router.navigate([`/tests/broken-access-control/${user.id}`]);
-
         this.loadUsers();
       } else {
         this.authMessage = '❌ Authentication failed!';
@@ -84,10 +82,16 @@ export class BrokenAccessControlComponent {
 
   deleteUser(userId: number) {
     this.authService.deleteUser(userId).subscribe(() => {
-      this.users = this.users.filter(user => user.id !== userId); // 🛑 Elimină userul din listă fără nicio verificare
+      this.users = this.users.filter(user => user.id !== userId);
+      this.loadUsers(); // ✅ Refresh lista de useri după ștergere
     });
   }
 
+  loadAdminPanel() {
+    this.authService.getAdminConfig().subscribe(data => {
+      this.adminData = data; // ✅ Orice user primește datele de admin
+    });
+  }
 
   logout() {
     localStorage.removeItem('BACToken');
@@ -95,7 +99,6 @@ export class BrokenAccessControlComponent {
     this.loggedInUser = null;
     this.authMessage = '';
     this.users = [];
-
-    this.router.navigate(['/tests/broken-access-control']); // ✅ Redirecționare corectă la logout
+    this.router.navigate(['/tests/broken-access-control']);
   }
 }
