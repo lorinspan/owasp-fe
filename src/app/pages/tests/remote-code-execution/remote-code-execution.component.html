@@ -2,7 +2,7 @@
   <h2>System Monitor</h2>
   <p>Verifică starea sistemului introducând o comandă:</p>
 
-  <input type="text" [(ngModel)]="command" placeholder="Ex: ipconfig /all">
+  <input type="text" [(ngModel)]="command" placeholder="Ex: uname -a">
   <button (click)="runCommand()">Execută Comanda</button>
 
   <div *ngIf="response">
@@ -10,3 +10,14 @@
     <pre>{{ response }}</pre>
   </div>
 </div>
+
+<!--
+whoami            # Afișează utilizatorul curent care rulează procesul
+id                # Afișează UID, GID și grupurile utilizatorului curent
+uname -a         # Afișează informații despre sistemul de operare
+hostname         # Afișează numele host-ului sistemului
+ls -la /        # Listează fișierele și directoarele din rădăcina sistemului
+ls -la /etc     # Listează fișierele de configurare (fără a le modifica)
+cat /etc/os-release  # Afișează versiunea sistemului de operare
+df -h            # Afișează spațiul utilizat pe disc
+-->
