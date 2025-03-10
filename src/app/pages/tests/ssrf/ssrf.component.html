@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Verifică stocul magazinelor</h2>
+  <p>Introduceți URL-ul magazinului pentru a verifica stocul disponibil:</p>
+
+  <input type="text" [(ngModel)]="url" placeholder="Ex: https://www.emag.ro/">
+  <button (click)="checkStock()">Verifică Stoc</button>
+
+  <div *ngIf="response">
+    <h3>Rezultat:</h3>
+    <p>{{ response.message }}</p>
+  </div>
+
+</div>

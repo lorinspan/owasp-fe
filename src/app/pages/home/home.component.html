@@ -50,4 +50,15 @@
     </ul>
   </div>
 
+  <div class="section">
+    <h3 class="section-subtitle">Server-Side Request Forgery (SSRF)</h3>
+    <p>Explorăm atacurile SSRF, unde utilizatorul poate introduce o adresă URL nesigură, iar serverul va efectua o solicitare către acea adresă fără nicio validare.</p>
+    <ul class="list">
+      <li><strong>Manipularea cererilor către backend</strong> – Aplicația permite utilizatorului să introducă un URL extern pentru verificarea stocului, dar nu limitează domeniile accesibile.</li>
+      <li><strong>Acces la resurse interne</strong> – Un atacator poate introduce o adresă URL internă (de exemplu, <code>http://localhost:8080/api/bac/admin/config</code>) pentru a accesa informații restricționate.</li>
+      <li><strong>Ocolirea mecanismelor de autentificare</strong> – Deoarece serverul execută cererea direct, poate accesa date interne fără a necesita autentificare.</li>
+      <li><strong>Expunerea informațiilor sensibile</strong> – Permite extragerea datelor administrative sau utilizatorilor prin exploatarea SSRF.</li>
+    </ul>
+  </div>
+
 </div>

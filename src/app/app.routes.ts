@@ -4,6 +4,7 @@ import { XssComponent } from './pages/tests/xss/xss.component';
 import { BrokenAuthComponent } from './pages/tests/broken-auth/broken-auth.component';
 import {BrokenAccessControlComponent} from './pages/tests/broken-access-control/broken-access-control.component';
 import {CryptoFailComponent} from './pages/tests/crypto-fail/crypto-fail.component';
+import {SSRFComponent} from './pages/tests/ssrf/ssrf.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,5 +13,6 @@ export const routes: Routes = [
   { path: 'tests/xss', component: XssComponent },
   { path: 'tests/broken-auth', component: BrokenAuthComponent },
   { path: 'tests/crypto-fail', component: CryptoFailComponent },
+  { path: 'tests/ssrf', component: SSRFComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' } // Fallback dacă ruta nu există
 ];
