@@ -41,12 +41,13 @@
   </div>
 
   <div class="section">
-    <h3 class="section-subtitle">Cryptographic Failures</h3>
+    <h3 class="section-subtitle">Cryptographic Failures + CSRF</h3>
     <p>Demonstrăm problemele legate de criptografie care pot duce la expunerea datelor sensibile.</p>
     <ul class="list">
       <li><strong>Utilizarea algoritmului MD5</strong> – Vulnerabil la atacuri rainbow table și brute-force.</li>
       <li><strong>Hardcoding de chei criptografice</strong> – Un atacator poate extrage cheia și decripta datele.</li>
       <li><strong>Stocarea parolelor în mod nesigur</strong> – Parolele sunt salvate într-un mod care le face ușor de spart.</li>
+      <li><strong>Atac CSRF prin schimbarea adresei de e-mail</strong> – Atacatorii pot trimite o cerere CSRF pentru a modifica adresa de e-mail a utilizatorului fără consimțământul acestuia, ducând la pierderea controlului asupra contului.</li>
     </ul>
   </div>
 

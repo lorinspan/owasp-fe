@@ -1,4 +1,4 @@
-/* Animatie de apariție */
+/* Container general */
 .container {
   animation: fadeIn 0.8s ease-in-out;
   max-width: 500px;
@@ -7,82 +7,74 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Titlul paginii */
-h2 {
-  font-size: 28px;
-  color: #E74C3C;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-/* Subtitlu */
-p {
-  font-size: 18px;
-  text-align: center;
-  color: #333;
+/* Tab-uri */
+.tab-container {
+  display: flex;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
-/* Inputuri pentru username, password și email */
-input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 2px solid #E74C3C;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: all 0.3s ease-in-out;
-  display: block;
-}
-
-input:focus {
-  border-color: #C0392B;
-  outline: none;
-}
-
-/* Buton de submit */
-button {
-  width: 100%;
-  padding: 12px;
+.tab-btn {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
   background: #E74C3C;
   color: white;
-  font-size: 18px;
   font-weight: bold;
   border: none;
   border-radius: 6px;
-  cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
-button:hover {
+.tab-btn.active {
   background: #C0392B;
-  transform: scale(1.05);
 }
 
-/* Mesaj de feedback */
-.success-message {
-  color: #2ECC71;
-  font-weight: bold;
-  margin-top: 10px;
+.tab-btn:hover {
+  background: #C0392B;
+}
+
+p {
+  margin-top: 2%;
+}
+
+label {
+  margin-top: 3%;
+}
+
+button {
+  margin-top: 3%;
+}
+
+/* MODAL ENERVANT */
+.modal {
+  position: fixed;
+  top: 75%;
+  left: 55%;
+  background: red;
+  color: white;
   text-align: center;
-}
-
-.error-message {
-  color: #E74C3C;
+  padding: 20px;
+  font-size: 18px;
   font-weight: bold;
-  margin-top: 10px;
-  text-align: center;
+  border: 5px solid yellow;
+  animation: flash 0.3s infinite alternate, shake 0.2s infinite alternate;
 }
 
-/* Animație */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.modal button {
+  margin-top: 5%;
+}
+
+.modal p {
+  margin-top: 1%;
+}
+
+@keyframes flash {
+  from { background: red; color: yellow; }
+  to { background: yellow; color: red; }
+}
+
+@keyframes shake {
+  from { transform: translateX(-10px); }
+  to { transform: translateX(10px); }
 }
