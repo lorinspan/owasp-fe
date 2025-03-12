@@ -57,8 +57,10 @@
     <button *ngIf="isLoggedIn" (click)="logout()" class="btn logout-btn">Logout</button>
 </div>
 
-<div id="annoying-modal" class="modal">
+<div id="annoying-modal" class="modal" *ngIf="showModal">
   <div class="modal-content">
+    <button class="close-btn" (click)="closeModal()">✖</button>
+
     <h2>🎁 FELICITĂRI! SUNTEȚI UN CÂȘTIGĂTOR! 🎁</h2>
     <p>⚡ APĂSAȚI AICI PENTRU A PRIMI UN IPHONE 16 PRO MAX! ⚡</p>
     <button id="claim-btn" class="btn claim-btn" (click)="claimPrize()">🔥 Revendică premiul 🔥</button>

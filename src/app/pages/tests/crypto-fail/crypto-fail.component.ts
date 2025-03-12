@@ -20,6 +20,7 @@ export class CryptoFailComponent implements OnInit{
   loggedInUser: any = null;
   isLoggedIn: boolean = false;
   activeTab: string = 'login';
+  showModal: boolean = true;
 
   constructor(private http: HttpClient) {}
 
@@ -79,5 +80,9 @@ export class CryptoFailComponent implements OnInit{
     } else {
       alert("You must be logged in to claim the prize!");
     }
+  }
+
+  closeModal() {
+    this.showModal = false;
   }
 }
