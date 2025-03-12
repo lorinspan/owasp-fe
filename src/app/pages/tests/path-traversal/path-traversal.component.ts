@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './path-traversal.component.css'
 })
 export class PathTraversalComponent {
-  filePath: string = ''; // Input-ul utilizatorului
+  filePath: string = '';
   response: string = '';
 
   constructor(private http: HttpClient) {}
@@ -19,9 +19,9 @@ export class PathTraversalComponent {
   readFile() {
     this.http.post<{ message: string }>('http://localhost:8080/api/files/read', { path: this.filePath })
       .subscribe(response => {
-        this.response = response.message; // ✅ Citește corect mesajul din JSON
+        this.response = response.message;
       }, error => {
-        this.response = '❌ Error reading file!';
+        this.response = 'Error reading file!';
       });
   }
 }

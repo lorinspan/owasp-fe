@@ -54,7 +54,7 @@ p {
 
 .file-content {
   margin-top: 5%;
-  white-space: pre-line; /* ✅ Păstrează newline (\r\n) */
+  white-space: pre-line;
   font-family: 'Courier New', Courier, monospace;
   background: #fffbe6;
   padding: 10px;

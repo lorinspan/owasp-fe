@@ -11,8 +11,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './remote-code-execution.component.css'
 })
 export class RemoteCodeExecutionComponent {
-  command: string = ''; // Input-ul utilizatorului
-  response: string = ''; // Rezultatul comenzii
+  command: string = '';
+  response: string = '';
 
   constructor(private http: HttpClient) {}
 
@@ -21,7 +21,7 @@ export class RemoteCodeExecutionComponent {
       .subscribe(response => {
         this.response = response.output;
       }, error => {
-        this.response = '❌ Error executing command!';
+        this.response = 'Error executing command!';
       });
   }
 }

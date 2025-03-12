@@ -10,17 +10,7 @@ export class BrokenAuthAuthService {
 
   constructor(private http: HttpClient) {}
 
-  // ❌ Login nesecurizat, fără hashing, fără rate-limiting
-  login(username: string, password: string): Observable<any> {
+  login(username: string, password: string): Observable<any> { // Login nesecurizat, fara hashing, fara rate-limiting
     return this.http.post<any>(`${this.apiUrl}/login`, { username, password });
-  }
-
-  // ❌ Sesiune stocată local, fără protecție
-  getLoggedInUser() {
-    const token = localStorage.getItem('BAAuthToken');
-    if (token) {
-      return { userId: 1, username: 'MockUser' }; // ❌ Hardcoded (nesecurizat)
-    }
-    return null;
   }
 }

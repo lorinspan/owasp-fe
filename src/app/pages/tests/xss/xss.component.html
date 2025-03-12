@@ -19,7 +19,7 @@
   <div class="feedback-list">
     <div class="feedback-item" *ngFor="let feedback of feedbackList">
       <strong class="feedback-name">{{ feedback.name }}</strong>
-      <p class="feedback-message" [innerHTML]="feedback.message"></p> <!-- Vulnerabil la XSS -->
+      <p class="feedback-message" [innerHTML]="feedback.message"></p> <!-- Vulnerabil la Xss -->
     </div>
   </div>
 </div>

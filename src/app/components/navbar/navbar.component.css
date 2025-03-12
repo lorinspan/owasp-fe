@@ -1,9 +1,8 @@
-/* 🔹 Navbar lateral colapsat inițial */
 .sidebar {
   position: fixed;
   left: 0;
   top: 0;
-  width: 60px; /* 📌 Doar cât să cuprindă emoji-urile */
+  width: 60px;
   height: 100vh;
   background: linear-gradient(180deg, #2C3E50, #1ABC9C);
   transition: width 0.3s ease-in-out;
@@ -20,7 +19,7 @@
 
 .home {
   position: relative;
-  padding-bottom: 10px; /* Asigură-te că există spațiu sub element pentru efect */
+  padding-bottom: 10px;
 }
 
 .home::before {
@@ -34,12 +33,10 @@
 }
 
 
-/* 📌 Se extinde la hover */
 .sidebar:hover {
   width: 410px;
 }
 
-/* 📌 Lista de link-uri */
 .sidebar ul {
   list-style: none;
   padding: 0;
@@ -47,12 +44,10 @@
   width: 100%;
 }
 
-/* 📌 Fiecare element din meniu */
 .sidebar li {
   width: 100%;
 }
 
-/* 📌 Link-urile */
 .sidebar a {
   display: flex;
   align-items: center;
@@ -67,14 +62,12 @@
   width: 100%;
 }
 
-/* 📌 Emoji-urile */
 .sidebar a span.emoji {
   font-size: 22px;
   text-align: center;
-  width: 60px; /* 📌 Spațiu fix pentru emoji */
+  width: 60px;
 }
 
-/* 📌 Inițial ascundem textul */
 .sidebar a span.text {
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
@@ -83,32 +76,27 @@
   overflow: hidden;
 }
 
-/* 📌 Afișăm textul doar la hover */
 .sidebar:hover a span.text {
   opacity: 1;
   width: auto;
   margin-left: 10px;
 }
 
-/* 📌 Efect la hover */
 .sidebar a:hover {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 6px;
 }
 
-/* 🔹 Layout pentru conținutul paginii */
 .main-content {
   margin-left: 80px;
   padding: 30px;
   transition: margin-left 0.3s ease-in-out;
 }
 
-/* 📌 Mutăm conținutul când navbar-ul e extins */
 .sidebar:hover ~ .main-content {
   margin-left: 260px;
 }
 
-/* 🔹 Responsivitate */
 @media screen and (max-width: 768px) {
   .sidebar {
     width: 50px;

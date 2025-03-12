@@ -31,10 +31,9 @@ export class XssComponent {
 
   loadFeedback() {
     this.http.get<any[]>('http://localhost:8080/api/feedback/list').subscribe(data => {
-      // 🚨 PERMITEM EXECUȚIA SCRIPTULUI (VULNERABIL)
       this.feedbackList = data.map(fb => ({
         name: fb.name,
-        message: this.sanitizer.bypassSecurityTrustHtml(fb.message) // ❌ XSS PERMIS!
+        message: this.sanitizer.bypassSecurityTrustHtml(fb.message) // Xss permis
       }));
     });
   }

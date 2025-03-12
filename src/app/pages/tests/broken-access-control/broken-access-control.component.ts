@@ -19,21 +19,19 @@ export class BrokenAccessControlComponent implements OnInit {
   loggedInUser: any = null;
   viewedUser: any = null;
   users: any[] = [];
-  adminData: any = null; // ✅ Conține date sensibile ale serverului
+  adminData: any = null;
 
   constructor(private authService: BACAuthService, private route: ActivatedRoute, private router: Router) {
     this.restoreSession();
   }
 
   ngOnInit() {
-    // Verifică dacă există user_id în parametrii rutei
     this.route.params.subscribe(params => {
       const userId = params['user_id'];
       if (userId) {
         this.loadUserById(userId);
         this.isLoggedIn = true;
       } else {
-        // Dacă nu există user_id, redirecționează la /tests/broken-access-control
         this.router.navigate(['/tests/broken-access-control']);
         this.viewedUser = this.loggedInUser;
       }
@@ -59,10 +57,10 @@ export class BrokenAccessControlComponent implements OnInit {
         this.router.navigate([`/tests/broken-access-control/${user.id}`]);
         this.loadUsers();
       } else {
-        this.authMessage = '❌ Authentication failed!';
+        this.authMessage = 'Authentication failed!';
       }
     }, () => {
-      this.authMessage = '❌ Authentication failed!';
+      this.authMessage = 'Authentication failed!';
     });
   }
 
@@ -90,13 +88,13 @@ export class BrokenAccessControlComponent implements OnInit {
   deleteUser(userId: number) {
     this.authService.deleteUser(userId).subscribe(() => {
       this.users = this.users.filter(user => user.id !== userId);
-      this.loadUsers(); // ✅ Refresh lista de useri după ștergere
+      this.loadUsers();
     });
   }
 
   loadAdminPanel() {
     this.authService.getAdminConfig().subscribe(data => {
-      this.adminData = data; // ✅ Orice user primește datele de admin
+      this.adminData = data;
     });
   }
 

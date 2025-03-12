@@ -11,12 +11,12 @@ import {RemoteCodeExecutionComponent} from './pages/tests/remote-code-execution/
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'tests/broken-access-control', component: BrokenAccessControlComponent },
-  { path: 'tests/broken-access-control/:user_id', component: BrokenAccessControlComponent }, // ✅ Ruta dinamică adăugată
+  { path: 'tests/broken-access-control/:user_id', component: BrokenAccessControlComponent },
   { path: 'tests/xss', component: XssComponent },
   { path: 'tests/broken-auth', component: BrokenAuthComponent },
   { path: 'tests/crypto-fail', component: CryptoFailComponent },
   { path: 'tests/ssrf', component: SSRFComponent },
   { path: 'tests/path_traversal', component: PathTraversalComponent },
   { path: 'tests/rce', component: RemoteCodeExecutionComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' } // Fallback dacă ruta nu există
+  { path: '**', redirectTo: '', pathMatch: 'full' } // Fallback
 ];

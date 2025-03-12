@@ -28,13 +28,12 @@ h1 {
   margin-bottom: 30px;
 }
 
-/* ✅ Grid pentru organizare mai bună */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(2, minmax(400px, 1fr)); /* 📌 Max 2 coloane */
+  grid-template-columns: repeat(2, minmax(400px, 1fr));
   gap: 20px;
   padding: 10px;
-  justify-content: center; /* 📌 Centrează conținutul */
+  justify-content: center;
 }
 
 .section {
@@ -67,7 +66,6 @@ p {
   line-height: 1.6;
 }
 
-/* ✅ Bullet points mai clare */
 .list {
   padding-left: 20px;
 }
@@ -93,6 +91,6 @@ p {
 
 @media (max-width: 900px) {
   .grid-container {
-    grid-template-columns: 1fr; /* 📌 Doar 1 coloană pe ecrane mici */
+    grid-template-columns: 1fr;
   }
 }

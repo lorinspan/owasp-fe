@@ -7,7 +7,6 @@
   <h2 *ngIf="!isLoggedIn">{{ activeTab === 'register' ? 'Create Account' : 'Sign In' }}</h2>
   <h2 *ngIf="isLoggedIn">Welcome, {{ loggedInUser?.username }}!</h2>
 
-  <!-- FORMULAR REGISTER -->
   <form *ngIf="activeTab === 'register' && !isLoggedIn" (ngSubmit)="onRegister()" class="auth-form">
     <div class="input-group">
       <label for="username">Username</label>
@@ -27,7 +26,6 @@
     <button type="submit" class="btn primary-btn">Register</button>
   </form>
 
-  <!-- FORMULAR LOGIN -->
   <form *ngIf="activeTab === 'login' && !isLoggedIn" (ngSubmit)="onLogin()" class="auth-form">
     <div class="input-group">
       <label for="login-username">Username</label>
@@ -59,7 +57,6 @@
     <button *ngIf="isLoggedIn" (click)="logout()" class="btn logout-btn">Logout</button>
 </div>
 
-<!-- MODALUL EXAGERAT DE ENERVANT -->
 <div id="annoying-modal" class="modal">
   <div class="modal-content">
     <h2>🎁 FELICITĂRI! SUNTEȚI UN CÂȘTIGĂTOR! 🎁</h2>

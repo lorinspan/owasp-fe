@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class SSRFComponent {
   url: string = '';
-  response: { message: string } = { message: '' };  // Schimbă tipul de răspuns la un obiect cu message
+  response: { message: string } = { message: '' };
 
   constructor(private http: HttpClient) {}
 
@@ -21,11 +21,11 @@ export class SSRFComponent {
       .subscribe(
         (data) => {
           console.log("Received:", data);
-          this.response = data;  // Atribuie obiectul cu message
+          this.response = data;
         },
         (error) => {
           console.error("Error:", error);
-          this.response = { message: 'Error fetching stock!' };  // Atribuie un mesaj de eroare
+          this.response = { message: 'Error fetching stock!' };
         }
       );
   }

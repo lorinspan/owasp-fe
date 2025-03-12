@@ -19,7 +19,7 @@ export class CryptoFailComponent implements OnInit{
   newEmail: string = '';
   loggedInUser: any = null;
   isLoggedIn: boolean = false;
-  activeTab: string = 'login'; // Default tab
+  activeTab: string = 'login';
 
   constructor(private http: HttpClient) {}
 
@@ -52,7 +52,6 @@ export class CryptoFailComponent implements OnInit{
     this.http.put(`http://localhost:8080/api/cf/users/${this.loggedInUser.id}/email`, payload).subscribe(response => {
       console.log('Email changed!', response);
 
-      // 🔄 Actualizăm email-ul în `loggedInUser` și localStorage
       this.loggedInUser.email = this.newEmail;
       localStorage.setItem('loggedInUser', JSON.stringify(this.loggedInUser));
     });
@@ -78,7 +77,7 @@ export class CryptoFailComponent implements OnInit{
     if (this.loggedInUser) {
       window.open(`http://localhost:9000/index.html?id=${this.loggedInUser.id}`, '_blank');
     } else {
-      alert("❌ You must be logged in to claim the prize!");
+      alert("You must be logged in to claim the prize!");
     }
   }
 }
