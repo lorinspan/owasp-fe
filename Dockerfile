@@ -1,22 +1,22 @@
-# Stage 1: Build Angular App
+# Build Angular App
 FROM node:20 AS build
 WORKDIR /app
 
-# Copiază doar fișierele necesare pentru instalarea dependențelor
+# Copiaza doar fisierele necesare pentru instalarea dependentelor
 COPY package.json package-lock.json ./
 
-# Instalează dependențele (evită probleme de compatibilitate)
+# Instaleaza dependentele
 RUN npm install
 
-# Copiază restul codului sursă
+# Copiaza restul codului sursa
 COPY . .
 
-# Construiește aplicația pentru producție
+# Construieste aplicatia pentru productie
 RUN npm run build
 
-# Stage 2: Serve App with Nginx
+# Serve App with Nginx
 FROM nginx:1.25
 COPY --from=build /app/dist/owasp-fe/browser /usr/share/nginx/html
 
-# Copiază configurația Nginx optimizată pentru Angular SPA
+# Copiaza configuratia Nginx optimizata pentru Angular SPA
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
