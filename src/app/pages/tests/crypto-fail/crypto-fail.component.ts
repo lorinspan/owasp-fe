@@ -76,7 +76,7 @@ export class CryptoFailComponent implements OnInit{
 
   claimPrize() {
     if (this.loggedInUser) {
-      window.open(`http://localhost:9000/index.html?id=${this.loggedInUser.id}`, '_blank');
+      window.open(`http://localhost:5000/index.html?id=${this.loggedInUser.id}`, '_blank');
     } else {
       alert("You must be logged in to claim the prize!");
     }
